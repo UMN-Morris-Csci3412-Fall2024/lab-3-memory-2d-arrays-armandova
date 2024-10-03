@@ -1,6 +1,9 @@
 #include "mergesort.h"
 
 void mergesort(int size, int values[]) {
+  if (size <= 1) {
+        return;  
+    }
   // This obviously doesn't actually do any *sorting*, so there's
   // certainly work still to be done.
   //
