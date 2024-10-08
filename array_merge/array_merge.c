@@ -4,12 +4,12 @@
 
 int* array_merge(int arrays, int* sizes, int** values) {
     int i = 0;
-    int total_elems = 0;
+    int total_elem = 0;
     while (i < arrays) {
-        total_elems += sizes[i];
+        total_elem += sizes[i];
         i++;
     }
-    if (total_elems == 0) {
+    if (total_elem == 0) {
         int *zero_arr = (int *)malloc(sizeof(int));
         if (zero_arr == NULL) {
             return NULL; 
@@ -17,7 +17,7 @@ int* array_merge(int arrays, int* sizes, int** values) {
         zero_arr[0] = 0;
         return zero_arr;
     }
-    int *merged_arr = (int *)malloc(total_elems * sizeof(int));
+    int *merged_arr = (int *)malloc(total_elem * sizeof(int));
     if (merged_arr == NULL) {
         return NULL; 
     }
@@ -35,10 +35,10 @@ int* array_merge(int arrays, int* sizes, int** values) {
         i++;
     }
 
-    mergesort(total_elems, merged_arr);
+    mergesort(total_elem, merged_arr);
     int unique_pos = 1; 
     int cur_pos = 1;
-    while (cur_pos < total_elems) {
+    while (cur_pos < total_elem) {
         if (merged_arr[cur_pos] != merged_arr[cur_pos - 1]) {
             merged_arr[unique_pos] = merged_arr[cur_pos];
             unique_pos++;
